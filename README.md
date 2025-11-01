@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# fsd-ecommerce
+Full Stack Hiring Challenge — E-commerce App using Fake Store API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🛒 FSD E-Commerce Website
 
-## Available Scripts
+This is a simple e-commerce web application built using **React JS**.  
+It allows users to browse products, view detailed information, add items to the cart, and proceed to checkout.  
+The project uses **Firebase Authentication** for login/signup and a **Fake Store API** for fetching product data.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Browse all available products  
+- View detailed product descriptions  
+- Add and remove items from the cart  
+- Calculate total cart value  
+- Checkout form with order summary  
+- Firebase login and signup (user authentication)  
+- Protected routes (only logged-in users can access Cart and Checkout)  
+- Responsive design for better user experience  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+##  Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend:** React JS (with Hooks, Context API, React Router)
+- **Backend:** Fake Store API (https://api.escuelajs.co/api/v1/products)
+- **Authentication:** Firebase Authentication
+- **Styling:** CSS (custom + inline styles)
+- **Package Manager:** npm
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+##  Setup Instructions to run Locally 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##  Setup Instructions (to run locally)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ### 1️⃣ Clone the Repository
 
-## Learn More
+```bash
+git "clone https://github.com/ShubhankarGGokhale/fsd-ecommerce.git"
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ### 2️⃣ Move into the Project Folder
+    cd fsd-ecommerce
 
-### Code Splitting
+    ### 3️⃣ Install All Dependencies
+    npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ### 4️⃣ Firebase Configuration
+    Create a Firebase project at Firebase Console
+,
+then enable Email/Password Authentication under “Sign-in methods”.
 
-### Analyzing the Bundle Size
+Replace the config in src/firebase.js with your own Firebase credentials:
+            import { initializeApp } from "firebase/app";
+            import { getAuth } from "firebase/auth";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+            const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+            };
 
-### Making a Progressive Web App
+            const app = initializeApp(firebaseConfig);
+            export const auth = getAuth(app);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+    ### 5️⃣ Run the Development Server
+    npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+    ### Now open your browser and visit:
+    http://localhost:3000
+    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    ### To Create a Production Build
 
-### `npm run build` fails to minify
+    If you want to deploy the project (e.g., on Vercel or Netlify):
+    "npm run build"
+    This will create an optimized build folder ready for deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Deployment 
+You can deploy this app for free using Vercel:
+
+Visit https://vercel.com
+
+Sign in using your GitHub account
+
+Click “New Project” → “Import GitHub Repository”
+
+Select your repo: fsd-ecommerce
+
+Click Deploy
+
+After deployment, you’ll get a live URL like:
+https://fsd-ecommerce.vercel.app
